@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-04-26T07:24:47.982317+00:00",
+  "device": {
+    "name": "X3",
+    "address": "REDACTED-BLE-ADDRESS",
+    "connected": true
+  },
+  "write_char": "0000ff02-0000-1000-8000-00805f9b34fb",
+  "notify_chars": [
+    "0000ff01-0000-1000-8000-00805f9b34fb",
+    "0000ff03-0000-1000-8000-00805f9b34fb"
+  ],
+  "writes": [
+    {
+      "timestamp": "2026-04-26T07:24:43.774624+00:00",
+      "label": "escpos_dle_eot_printer_status",
+      "hex": "100401",
+      "response_mode": "write",
+      "result": "ack"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:44.298935+00:00",
+      "label": "escpos_dle_eot_offline_status",
+      "hex": "100402",
+      "response_mode": "write",
+      "result": "ack"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:44.822921+00:00",
+      "label": "escpos_dle_eot_error_status",
+      "hex": "100403",
+      "response_mode": "write",
+      "result": "ack"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:45.349445+00:00",
+      "label": "escpos_dle_eot_paper_status",
+      "hex": "100404",
+      "response_mode": "write",
+      "result": "ack"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:45.874633+00:00",
+      "label": "printmaster_get_dev_state",
+      "hex": "5178a30001000000ff",
+      "response_mode": "write",
+      "result": "ack"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:46.398809+00:00",
+      "label": "printmaster_get_dev_info",
+      "hex": "5178a80001000000ff",
+      "response_mode": "write",
+      "result": "ack"
+    }
+  ],
+  "notifications": [
+    {
+      "timestamp": "2026-04-26T07:24:43.242278+00:00",
+      "subscribed": "0000ff01-0000-1000-8000-00805f9b34fb"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:43.273398+00:00",
+      "subscribed": "0000ff03-0000-1000-8000-00805f9b34fb"
+    },
+    {
+      "timestamp": "2026-04-26T07:24:43.273516+00:00",
+      "sender": "0000ff03-0000-1000-8000-00805f9b34fb",
+      "hex": "0108",
+      "bytes": [
+        1,
+        8
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T07:24:43.273567+00:00",
+      "sender": "0000ff03-0000-1000-8000-00805f9b34fb",
+      "hex": "02f000",
+      "bytes": [
+        2,
+        240,
+        0
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T07:24:45.897724+00:00",
+      "sender": "0000ff03-0000-1000-8000-00805f9b34fb",
+      "hex": "0105",
+      "bytes": [
+        1,
+        5
+      ]
+    },
+    {
+      "timestamp": "2026-04-26T07:24:46.931288+00:00",
+      "sender": "0000ff01-0000-1000-8000-00805f9b34fb",
+      "hex": "64ff2c08008307021009034647df5934129b",
+      "bytes": [
+        100,
+        255,
+        44,
+        8,
+        0,
+        131,
+        7,
+        2,
+        16,
+        9,
+        3,
+        70,
+        71,
+        223,
+        89,
+        52,
+        18,
+        155
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.DS_Store
+.venv/
+__pycache__/
+*.pyc
+captures/*.json
+captures/*.log
+!captures/.gitkeep
+!captures/public/
+!captures/public/*.json
+tools/X3Python.app

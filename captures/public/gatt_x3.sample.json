@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-04-26T07:22:39.865726+00:00",
+  "device": {
+    "name": "X3",
+    "address": "REDACTED-BLE-ADDRESS",
+    "connected": true
+  },
+  "services": [
+    {
+      "uuid": "0000ff00-0000-1000-8000-00805f9b34fb",
+      "description": "Vendor specific",
+      "handle": 8,
+      "characteristics": [
+        {
+          "uuid": "0000ff01-0000-1000-8000-00805f9b34fb",
+          "description": "Vendor specific",
+          "handle": 9,
+          "properties": [
+            "notify"
+          ],
+          "descriptors": [
+            {
+              "uuid": "00002902-0000-1000-8000-00805f9b34fb",
+              "handle": 11
+            }
+          ]
+        },
+        {
+          "uuid": "0000ff02-0000-1000-8000-00805f9b34fb",
+          "description": "Vendor specific",
+          "handle": 12,
+          "properties": [
+            "write-without-response",
+            "write"
+          ],
+          "descriptors": []
+        },
+        {
+          "uuid": "0000ff03-0000-1000-8000-00805f9b34fb",
+          "description": "Vendor specific",
+          "handle": 14,
+          "properties": [
+            "notify"
+          ],
+          "descriptors": [
+            {
+              "uuid": "00002902-0000-1000-8000-00805f9b34fb",
+              "handle": 16
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
