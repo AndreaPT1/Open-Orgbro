@@ -6,6 +6,9 @@ Questo progetto serve a capire e documentare come parlare con la ORGBRO X3 da st
 
 Il repository e' un laboratorio di reverse engineering applicato: contiene prove, catture, script diagnostici e un primo percorso funzionante per stampare testo localmente. Non e' ancora un SDK rifinito o un prodotto finale, ma una base tecnica utile per chi vuole studiare il protocollo, contribuire o costruire tool piu' user-friendly sopra questo lavoro.
 
+## In una frase
+Se vuoi provare subito qualcosa di utile: questo repo oggi sa rilevare la stampante, fare feed carta e stampare testo raster locale sulla ORGBRO X3 da Python.
+
 ## Stato del progetto
 - progetto sperimentale e in evoluzione;
 - alcune parti sono nate in modo molto pragmatico e iterativo, seguendo test reali piu' che un design formale a priori;
@@ -13,6 +16,14 @@ Il repository e' un laboratorio di reverse engineering applicato: contiene prove
 - usalo come base tecnica e come diario di reverse engineering, non come prodotto supportato.
 
 In breve: funziona, ma e' anche un repo "vibe coded" nel senso piu' onesto del termine. Abbiamo privilegiato velocita' di esplorazione, prove sul campo e documentazione dei risultati. Se apri issue o PR per chiarire, ripulire o consolidare il codice, sei nel posto giusto.
+
+## Cosa funziona oggi
+- scansione BLE e individuazione della X3;
+- ispezione GATT della stampante;
+- comando feed carta confermato;
+- replay di alcuni job/catture;
+- generazione e stampa di testo raster locale senza Snap & Tag;
+- preview locale PNG senza Bluetooth per verificare il layout prima di stampare.
 
 ## Quick start
 Prerequisiti:
@@ -28,19 +39,34 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Sanity check, solo feed carta:
-```bash
-python3 scripts/q2_feed.py --filter x3 --steps 24 --wait-after 2
-```
+Importante su macOS:
+- lancia i comandi BLE da `Terminal.app`;
+- non lanciare la stampa BLE da host che spawnano Python senza permessi Bluetooth/macOS TCC gia' a posto;
+- se `Snap & Tag` e' aperta, chiudila prima dei test, cosi' non occupa la connessione.
+
+Ordine consigliato:
+1. genera una preview locale senza Bluetooth;
+2. prova un feed carta;
+3. stampa testo da `Terminal.app`.
 
 Preview locale senza Bluetooth:
 ```bash
 python3 scripts/q2_print_text.py "Hello world" --height-rows 120 --font-size 64 --preview /tmp/x3-preview.png --preview-only
 ```
 
+Sanity check, solo feed carta:
+```bash
+python3 scripts/q2_feed.py --filter x3 --steps 24 --wait-after 2
+```
+
 Stampa testo da Terminal.app:
 ```bash
 python3 scripts/q2_print_text.py "Hello world" --height-rows 120 --font-size 64 --feed-steps 160
+```
+
+Per una foto del repo:
+```bash
+python3 scripts/q2_print_text.py "Open-Orgbro" --height-rows 140 --font-size 72 --feed-steps 180
 ```
 
 ## Supporto e aspettative
@@ -50,6 +76,12 @@ Questo repository viene pubblicato per condividere il lavoro, non come servizio 
 Gli identificativi specifici del dispositivo e alcuni dettagli ambientali presenti durante i test locali sono stati redatti nei file condivisi pubblicamente. Le catture di esempio pensate per il repository pubblico sono in `captures/public/`.
 
 Nota pratica: il bundle locale `tools/X3Python.app` puo' restare utile sulla macchina di sviluppo, ma e' trattato come artefatto locale e non e' pensato per essere versionato o pubblicato.
+
+## Troubleshooting rapido
+- Se Python crasha con un errore TCC o con un riferimento a `NSBluetoothAlwaysUsageDescription`, non e' necessariamente un bug del repo: su macOS devi lanciare gli script BLE da `Terminal.app`.
+- Se la stampante non risponde, verifica che sia accesa e che `Snap & Tag` sia chiusa.
+- Se vuoi controllare il layout prima di usare il Bluetooth, usa `--preview-only`.
+
 ## Obiettivo
 Costruire un tool locale, inizialmente CLI Python, che sappia:
 - rilevare la stampante via Bluetooth Low Energy;
