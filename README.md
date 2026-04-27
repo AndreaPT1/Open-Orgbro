@@ -1,6 +1,8 @@
 # ORGBRO X3 Lab
 Reverse engineering di interoperabilità per pilotare una stampante termica ORGBRO X3 senza passare dall'app Snap & Tag.
 
+![ORGBRO X3 che stampa Open-Orgbro](assets/images/open-orgbro-printer.png)
+
 ## A cosa serve
 Questo progetto serve a capire e documentare come parlare con la ORGBRO X3 da strumenti locali e script semplici, senza dipendere dal software proprietario del produttore. L'obiettivo pratico e' rendere la stampante utilizzabile in flussi piu' aperti, ripetibili e automatizzabili: test BLE, feed carta, replay di job catturati e generazione/stampa di testo raster da Python.
 
